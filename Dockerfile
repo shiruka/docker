@@ -3,7 +3,7 @@ RUN mkdir -p /opt
 WORKDIR /opt
 RUN git clone https://github.com/shiruka/shiruka.git
 
-FROM gradle/jdk16:latest
+FROM gradle/jdk16
 RUN mkdir -p /opt/shiruka
 WORKDIR /opt/shiruka
 COPY --from=0 /opt/shiruka /opt/shiruka

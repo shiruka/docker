@@ -3,6 +3,7 @@ RUN mkdir -p /opt
 WORKDIR /opt
 RUN git clone https://github.com/shiruka/shiruka.git
 WORKDIR /opt/shiruka
+RUN chmod +x gradlew
 RUN ./gradlew shadowJar
 
 FROM openjdk:16

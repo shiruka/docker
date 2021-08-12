@@ -3,11 +3,11 @@ RUN mkdir -p /opt
 WORKDIR /opt
 RUN git clone https://github.com/shiruka/shiruka.git
 
-FROM adoptopenjdk/maven-openjdk11
+FROM gradle/jdk16:latest
 RUN mkdir -p /opt/shiruka
 WORKDIR /opt/shiruka
 COPY --from=0 /opt/shiruka /opt/shiruka
-RUN mvn clean install -Dmaven.javadoc.skip=true -Dmaven.source.skip=true -B -ntp
+RUN gradle shadowJar
 
 FROM adoptopenjdk/openjdk11:alpine
 RUN mkdir -p /opt/shiruka

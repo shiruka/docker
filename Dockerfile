@@ -15,7 +15,7 @@ FROM openjdk:16 AS APP
 RUN mkdir -p /opt/shiruka
 WORKDIR /opt/shiruka
 COPY --from=BUILD /opt/shiruka/build/libs/Shiruka.jar /opt/shiruka
-COPY --from=BUILD /entrypoint.sh /opt/shiruka
+COPY /entrypoint.sh /opt/shiruka
 EXPOSE 19132
-ENTRYPOINT ["/bin/sh", "/opt/shiruka/server/entrypoint.sh"]
+ENTRYPOINT ["/bin/sh", "/opt/shiruka/entrypoint.sh"]
 CMD [""]

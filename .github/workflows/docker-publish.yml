@@ -8,14 +8,14 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  Docker:
+    name: Docker
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - uses: docker/setup-qemu-action@v1
 

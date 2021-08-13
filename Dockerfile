@@ -8,11 +8,12 @@ RUN mkdir -p /opt
 WORKDIR /opt
 COPY --from=REPO /opt/shiruka ./shiruka
 WORKDIR ./shiruka
+RUN rm -rf ./.ignore
 RUN chmod +x gradlew
 RUN ./gradlew clean build
 RUN mkdir -p ./server
 COPY ./build/libs/Shiruka.jar ./server
-COPY entrypoint.sh ./server
+COPY ./entrypoint.sh ./server
 WORKDIR ./server
 EXPOSE 19132
 ENTRYPOINT ["/bin/sh", "/opt/shiruka/server/entrypoint.sh"]

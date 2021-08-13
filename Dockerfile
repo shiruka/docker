@@ -6,7 +6,7 @@ RUN git clone https://github.com/shiruka/shiruka.git
 FROM openjdk:16
 RUN mkdir -p /opt
 WORKDIR /opt
-COPY --from=REPO /opt/shiruka /opt
+COPY --from=REPO /opt/shiruka /opt/shiruka
 WORKDIR /opt/shiruka
 RUN chmod +x /opt/shiruka/gradlew
 RUN /opt/shiruka/gradlew clean build

@@ -3,7 +3,8 @@ RUN mkdir -p /opt
 WORKDIR /opt
 RUN git clone https://github.com/shiruka/shiruka.git
 WORKDIR /opt/shiruka
-RUN gradlew build
+RUN chmod +x gradlew
+RUN ./gradlew build
 
 FROM openjdk:16
 RUN mkdir -p /opt/shiruka

@@ -12,7 +12,7 @@ RUN chmod +x gradlew
 RUN ./gradlew clean build
 RUN mkdir -p /opt/shiruka/server
 COPY /opt/shiruka/build/libs/Shiruka.jar /opt/shiruka/server
-COPY entrypoint.sh /opt/shiruka/server
+COPY ./entrypoint.sh /opt/shiruka/server
 WORKDIR /opt/shiruka/server
 EXPOSE 19132
 ENTRYPOINT ["/bin/sh", "/opt/shiruka/server/entrypoint.sh"]

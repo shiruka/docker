@@ -3,7 +3,7 @@ RUN mkdir -p /opt
 WORKDIR /opt
 RUN git clone https://github.com/shiruka/shiruka.git
 
-FROM openjdk:19 AS BUILD
+FROM openjdk:20 AS BUILD
 RUN mkdir -p /opt
 WORKDIR /opt
 COPY --from=REPO /opt/shiruka ./shiruka
@@ -11,7 +11,7 @@ WORKDIR shiruka
 RUN chmod +x gradlew
 RUN ./gradlew clean build
 
-FROM openjdk:19 AS APP
+FROM openjdk:20 AS APP
 RUN mkdir -p /opt/shiruka
 WORKDIR /opt/shiruka
 COPY --from=BUILD /opt/shiruka/build/libs/Shiruka.jar /opt/shiruka
